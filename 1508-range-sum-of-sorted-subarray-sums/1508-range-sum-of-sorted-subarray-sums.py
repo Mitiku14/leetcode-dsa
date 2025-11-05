@@ -1,19 +1,17 @@
 class Solution:
     def rangeSum(self, nums: List[int], n: int, left: int, right: int) -> int:
-        
-        MOD = 10**9 + 7
+        mod = 10**9 + 7
+        res = 0
         ans = []
-        for i in range(n):
-            res = 0
-            r = i
-            # keep extending r from i to n-1
-            while r < n:
-                res += nums[r]
+        for i in range(len(nums)):
+            res = nums[i]
+            ans.append(res)
+            for j in range(i + 1, len(nums)):
+                res += nums[j]
                 ans.append(res)
-                r += 1
-
         ans.sort()
-        return sum(ans[left-1:right]) % MOD
+        # print(ans)
+        return sum(ans[left -1 : right]) % mod
         
 
 
