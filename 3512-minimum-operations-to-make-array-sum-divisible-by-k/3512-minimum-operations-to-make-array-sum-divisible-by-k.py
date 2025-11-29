@@ -1,0 +1,9 @@
+class Solution:
+    def minOperations(self, nums: List[int], k: int) -> int:
+        total = sum(nums)
+        if total % k == 0:
+            return 0
+        if total < k:
+            return total
+        
+        return total % k
