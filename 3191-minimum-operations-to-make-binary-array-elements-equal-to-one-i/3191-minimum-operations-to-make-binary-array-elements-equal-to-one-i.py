@@ -2,8 +2,8 @@ class Solution:
     def minOperations(self, nums: List[int]) -> int:
         n = len(nums)
         count = 0
-        for i in range(n):
-            if nums[i] == 0 and i + 2 < n:
+        for i in range(n -2):
+            if nums[i] == 0:
                 nums[i] = nums[i] ^ 1
                 nums[i + 1] = nums[i + 1] ^ 1
                 nums[i + 2] = nums[i + 2] ^ 1
