@@ -1,7 +1,6 @@
 class Solution:
     def twoCitySchedCost(self, costs: List[List[int]]) -> int:
         n = len(costs)
-        sorted_costs = sorted(costs, reverse=True)
         ans = []
         i = 0
         for x, y in costs:
