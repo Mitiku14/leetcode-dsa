@@ -5,31 +5,12 @@
 #         self.next = next
 class Solution:
     def removeNodes(self, head: Optional[ListNode]) -> Optional[ListNode]:
-        prev = None
-        cur = head
-        while cur:
-            temp = cur.next
-            cur.next = prev
-            prev = cur
-            cur = temp
-        head = prev
-        max_val = head.val
-        cur = head
+        if not head or not head.next:
+            return head
         
-        while cur and cur.next:
-            if cur.next.val < max_val:
-                cur.next = cur.next.next
-            else:
-                cur = cur.next
-                max_val = cur.val
-        
-        prev = None
-        cur = head
-        while cur:
-            temp = cur.next
-            cur.next = prev
-            prev = cur
-            cur = temp
-        
-        return prev
+        head.next = self.removeNodes(head.next)
+
+        if head.next and head.val < head.next.val:
+            return head.next
+        return head
         
