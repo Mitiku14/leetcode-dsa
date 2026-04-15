@@ -15,8 +15,8 @@ class Solution:
                 children[i] += cookies[ind]
                 backtrack(ind + 1, children)
                 children[i] -= cookies[ind]
-                if children[i] == 0:
-                    break
+                # if children[i] == 0:
+                #     break
 
 
         backtrack(0, children)
