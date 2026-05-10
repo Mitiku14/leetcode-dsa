@@ -1,9 +1,9 @@
 class Solution:
     def maxProduct(self, nums: List[int]) -> int:
-        max_pro = 0
-        n = len(nums)
-        for i in range(n):
-            for j in range(i+1, n):
-                max_pro = max(max_pro, (nums[i] -1) * (nums[j] - 1))
+        heap = [-x for x in nums]
+        heapq.heapify(heap)
         
-        return max_pro
+        first = -heapq.heappop(heap)
+        second = -heapq.heappop(heap)
+        
+        return (first - 1) * (second - 1)
