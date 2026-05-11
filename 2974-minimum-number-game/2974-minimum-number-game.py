@@ -9,6 +9,6 @@ class Solution:
                 return res
             a = heapq.heappop(heap)
             b = heapq.heappop(heap)
-            res.append(b)
-            res.append(a)
+            res.extend((b, a))
+        
         
