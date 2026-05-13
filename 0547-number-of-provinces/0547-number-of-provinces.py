@@ -5,11 +5,10 @@ class Solution:
         size = [1] * n
 
         def find(node):
-            if node == par[node]:
-                return node
-            p = find(par[node])
-            par[node] = p
-            return p
+            while node != par[node]:
+                par[node] = par[par[node]]
+                node = par[node]
+            return node
         
         def union(u, v):
             u = find(u)
