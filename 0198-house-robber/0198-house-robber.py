@@ -1,10 +1,13 @@
 class Solution:
-    def rob(self, nums):
-        rob1, rob2 = 0, 0
+    def rob(self, nums: List[int]) -> int:
+        memo = {}
+        def backtrack(i):
+            if i >= len(nums): return 0
+            if i not in memo:
+                temp = backtrack(i + 1)
+                mine = nums[i]
+                memo[i] = max(temp, mine + backtrack(i + 2))
+            return memo[i]
+        return backtrack(0)
+
         
-        for n in nums:
-            newRob = max(rob2, rob1 + n)
-            rob1 = rob2
-            rob2 = newRob
-        
-        return rob2
