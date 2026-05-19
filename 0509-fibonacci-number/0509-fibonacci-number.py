@@ -1,6 +1,12 @@
 class Solution:
     def fib(self, n: int) -> int:
-        if n == 0 or n == 1:
-            return n
-
-        return self.fib(n-1) + self.fib(n-2)
+        self.memo = {}
+        def f(num):
+            if num < 2:
+                return num
+            if num not in self.memo:
+                self.memo[num] = f(num-2) + f(num-1)
+            
+            return self.memo[num]
+        
+        return f(n)
