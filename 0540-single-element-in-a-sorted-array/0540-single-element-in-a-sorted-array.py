@@ -1,7 +1,16 @@
 class Solution:
     def singleNonDuplicate(self, nums: List[int]) -> int:
-        cnt = Counter(nums)
-        for key, val in cnt.items():
-            if val == 1:
-                return key
+        n = len(nums)
+        l, r = 0, n - 1
+        while l < r:
+            m = (l + r) // 2
+            if m % 2 == 1:
+                m -= 1
+            if nums[m] != nums[m + 1]:
+                r = m
+            else:
+                l = m + 2
+        
+        return nums[l]
+            
         
